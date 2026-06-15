@@ -148,7 +148,7 @@ class DrawPanel extends JPanel implements MouseListener {
         for (int i = 0; i < aces; i++) {
             total += 1;
         }
-        if (total + 10 <= 21) {
+        if (aces > 0 && total + 10 <= 21) {
             total += 10;
         }
 
