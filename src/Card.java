@@ -21,6 +21,13 @@ public class Card {
         this.hitbox = new Rectangle(-10, -10, image.getWidth(), image.getHeight());
     }
 
+    public Card() {
+        this.suit = null;
+        this.value = null;
+        this.imageFileName = "card_back.png";
+        this.image = readImage();
+    }
+
     public Rectangle getHitbox() {
         return hitbox;
     }

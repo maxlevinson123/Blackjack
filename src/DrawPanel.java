@@ -13,6 +13,7 @@ class DrawPanel extends JPanel implements MouseListener {
     private ArrayList<Card> playerCards;
     boolean lost = false;
     boolean won = false;
+    boolean stand = false;
 
     public DrawPanel() {
 
@@ -62,6 +63,7 @@ class DrawPanel extends JPanel implements MouseListener {
             if (won || lost) {
                 return;
             }
+            stand = true;
             while (getHandPoints(dealerCards) < 17) {
                 dealerCards.add(d.getRandomCard());
             }
@@ -89,9 +91,18 @@ class DrawPanel extends JPanel implements MouseListener {
         super.paintComponent(g);
         int x = 50;
         int y = 10;
-        for (int i = 0; i < dealerCards.size(); i++) {
-            g.drawImage(dealerCards.get(i).getImage(), x, y, null);
+        if (stand = false) {
+            g.drawImage(dealerCards.get(0).getImage(), x, y, null);
             x += 80;
+            Card c = new Card();
+            g.drawImage(c.getImage(), x, y, null);
+            x += 80;
+        }
+        if (stand  = true) {
+            for (int i = 0; i < dealerCards.size(); i++) {
+                g.drawImage(dealerCards.get(i).getImage(), x, y, null);
+                x += 80;
+            }
         }
         x = 50;
         y += 200;
